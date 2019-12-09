@@ -1,31 +1,44 @@
 import React, { useEffect, useState } from 'react';
 
-import { Container, ListContainer, Table, Button, ButtonAdd } from './styles';
+import { Container, ListContainer, Table, ButtonAdd } from './styles';
 import api from '~/services/api';
-
 import plus from '../../assets/plus.svg';
+import trash from '../../assets/trash.svg';
 
-export default function Students() {
+export default function Discovery() {
   const [discoveries, setDiscoveries] = useState([]);
+  const [width, setWidth] = useState(window.innerWidth)
 
   useEffect(() => {
-    async function loadDiscovery() {
-      await api
-        .get('discovery')
-        .then(response => setDiscoveries(response.data))
-        .catch(e => console.log(e));
-    }
-
     loadDiscovery();
-
-    console.log(discoveries);
   }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => { window.removeEventListener('resize', handleResize) }
+  }, []);
+
+  async function loadDiscovery() {
+    await api
+      .get('discovery')
+      .then(response => setDiscoveries(response.data))
+      .catch(e => console.log(e));
+  }
+
+  function handleDelete(id) {
+    api.delete(`/discovery/${id}`)
+      .then(loadDiscovery)
+      .catch(e => console.log(e))
+  }
 
   return (
     <Container>
       <div>
         <h1>Lista de descobertas</h1>
-        <ButtonAdd>
+        <ButtonAdd to="/discoveries/add">
           <img src={plus} alt="Add" />
         </ButtonAdd>
       </div>
@@ -36,22 +49,21 @@ export default function Students() {
             <tr>
               <th>NOME</th>
               <th>DESCRIÇÃO</th>
-              <th>PONTO DE REFERÊNCIA</th>
-              <th>COMENTÁRIOS ADICIONAIS</th>
-              <th> </th>
+              {width >= 768 && (<th>PONTO DE REFERÊNCIA</th>)}
+              {width >= 768 && (<th>COMENTÁRIOS ADICIONAIS</th>)}
+              <th>EXCLUIR</th>
             </tr>
           </thead>
           <tbody>
             {discoveries.length > 0 &&
-              discoveries.map(discovery => (
-                <tr>
+              discoveries.map((discovery, index) => (
+                <tr key={index}>
                   <td>{discovery.name}</td>
                   <td>{discovery.description}</td>
-                  <td>{discovery.reference_point}</td>
-                  <td>{discovery.additional_comments}</td>
+                  {width >= 768 && (<td>{discovery.reference_point}</td>)}
+                  {width >= 768 && (<td>{discovery.additional_comments}</td>)}
                   <td>
-                    <Button color="#2054C3">editar</Button>
-                    <Button color="#F44646">apagar</Button>
+                    <img src={trash} alt="Trash" onClick={() => handleDelete(discovery.id)} />
                   </td>
                 </tr>
               ))}

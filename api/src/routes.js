@@ -8,7 +8,6 @@ const routes = new Router();
 
 routes.post('/discovery', DiscoveryController.store);
 routes.get('/discovery', DiscoveryController.index);
-
-routes.use(authMiddleware);
+routes.delete('/discovery/:id', DiscoveryController.delete);
 
 export default routes;

@@ -29,6 +29,14 @@ class DiscoveryController {
 
     return res.json(discoveries);
   }
+
+  async delete(req, res) {
+    const discovery = await Discovery.findByPk(req.params.id);
+
+    await discovery.destroy();
+
+    return res.json(discovery);
+  }
 }
 
 export default new DiscoveryController();

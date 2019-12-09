@@ -39,6 +39,7 @@ export const Table = styled.table`
   text-align: center;
   align-items: center;
   border-collapse: collapse;
+  margin: 10px 0;
 
   thead {
     tr {
@@ -46,15 +47,26 @@ export const Table = styled.table`
     }
   }
 
+  img {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+  }
+
   tr {
     height: 50px;
-    border-bottom: 2px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  th {
+    color: #aaa;
   }
 
   td,
   th {
     width: 25%;
     text-align: left;
+    padding: 5px;
   }
 `;
 
@@ -70,12 +82,11 @@ export const ButtonAdd = styled(Link)`
   align-items: center;
   background-color: #fff;
   border-radius: 8px;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 
   img {
-    width: 30px;
-    height: 30px;
-    fill: '#ccc'
+    width: 20px;
+    height: 20px;
   }
 `;
