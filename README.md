@@ -1,6 +1,5 @@
-## Notepad de descobertas
+# Notepad de descobertas
 
-In the project directory, you can run:
 
 ### preparacao de ambiente:
 
