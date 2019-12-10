@@ -51,5 +51,14 @@ renomeie o arquivo .env.example para .env
 
 ### layouts
 
-<img src="/layouts/layout_1.png" alt="Layout 1"/>
-<img src="/layouts/layout_2.png" alt="Layout 2"/>
+Tela principal - web
+<img src="/layouts/layout_1.png" alt="Layout 2"/>
+
+Tela para adicionar descoberta - web
+<img src="/layouts/layout_2.png" alt="Layout 1"/>
+
+Tela principal - mobile
+<img src="/layouts/layout_mob_1.png" alt="Layout 2"/>
+
+Tela para adicionar descoberta - mobile
+<img src="/layouts/layout_mob_2.png" alt="Layout 1"/>

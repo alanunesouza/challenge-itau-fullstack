@@ -33,7 +33,7 @@ export const Content = styled.div`
 
 export const Options = styled.div`
   display: flex;
-  flex: 3;
+  flex: 2;
   align-items: center;
   justify-content: flex-start;
   margin-left: 20px;
