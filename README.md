@@ -36,7 +36,7 @@ Com isso, você já tem o ambiente preparado para a aplicacao.
 na pasta clonada, rode em seu terminal:
 
 ```
-cd api && yarn && PORT=3333 yarn start
+cd api && yarn && yarn dev
 ```
 
 abra uma nova aba de terminal, e rode:
