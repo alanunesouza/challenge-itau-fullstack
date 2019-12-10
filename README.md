@@ -58,7 +58,14 @@ Tela para adicionar descoberta - web
 <img src="/layouts/layout_2.png" alt="Layout 1"/>
 
 Tela principal - mobile
+
+<br/>
+
 <img src="/layouts/layout_mob_1.png" alt="Layout 2"/>
 
+<br/>
+
 Tela para adicionar descoberta - mobile
+<br/>
+
 <img src="/layouts/layout_mob_2.png" alt="Layout 1"/>
